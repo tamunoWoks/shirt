@@ -17,5 +17,16 @@ def check_arg(argv):
         input_file_root, input_file_ext = splitext(argv[1])
         output_file_root, output_file_ext = splitext(argv[2])
 
+        if input_file_ext.lower() not in support:
+            exit('Invalid input')
+        if output_file_ext.lower() not in support:
+            exit('Invalid output')
+        if input_file_ext.lower() != output_file_ext.lower():
+            exit('Input and output have different extensions')
+        return True
+
+    except FileNotFoundError:
+        exit('File does not exist')
+
 if __name__ == '__main__':
     main()
