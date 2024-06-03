@@ -24,9 +24,20 @@ def check_arg(argv):
         if input_file_ext.lower() != output_file_ext.lower():
             exit('Input and output have different extensions')
         return True
-
     except FileNotFoundError:
         exit('File does not exist')
 
+
+def overlay(input, output):
+    try:
+        shirt = Image.open('shirt.png')
+        with Image.open(input) as input:
+            cut = ImageOps.fit(input, shirt.size)
+            cut.paste(shirt, mask=shirt)
+            cut.save(output)
+    except OSError:
+        exit('Input does not exist')
+
+        
 if __name__ == '__main__':
     main()
