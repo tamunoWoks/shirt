@@ -3,7 +3,8 @@ from sys import argv, exit
 from os.path import splitext
 
 def main():
-    ...
+    if check_arg(argv):
+        overlay(argv[1], argv[2])
 
 
 def check_arg(argv):
@@ -38,6 +39,6 @@ def overlay(input, output):
     except OSError:
         exit('Input does not exist')
 
-        
+
 if __name__ == '__main__':
     main()
