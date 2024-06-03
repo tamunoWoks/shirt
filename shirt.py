@@ -5,5 +5,9 @@ from os.path import splitext
 def main():
     ...
 
+
+def check_arg(argv):
+    
+
 if __name__ == '__main__':
     main()
